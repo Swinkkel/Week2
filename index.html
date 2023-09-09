@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script></script>
+    <script src="js/basic.js" defer></script>
 </head>
 <body>
-    <table>
+    <table id = "data-table">
         <thead>
             <tr>
                 <th>Username</th>
                 <th>Email</th>
                 <th>Admin</th>
+                <th>Image</th>
             </tr>
         </thead>
 
@@ -21,24 +22,41 @@
                 <td>Webmaster</td>
                 <td>example@email.com</td>
                 <td>X</td>
+                <td></td>
             </tr>
             <tr>
                 <td>User123</td>
                 <td>example@email.com</td>
                 <td>-</td>
+                <td></td>
             </tr>
             <tr>
                 <td>AnotherUser222</td>
                 <td>example@email.com</td>
                 <td>-</td>
+                <td></td>
             </tr>
         </tbody>
     </table>
 
-    <form action=""></form>
-
     <button id="empty-table">Empty table</button>
 
+    <br><br>
 
+    <fieldset id="my-form">
+        <label for="input-username">Username:</label>
+        <input type="text" id="input-username"><br>
+
+        <label for="input-email">Email:</label>
+        <input type="text" id="input-email"><br>
+
+        <label for="input-admin">Admin:</label>
+        <input type="checkbox" id="input-admin"><br>
+
+        <label for="input-image">Image:</label>
+        <input type="file" id="input-image"><br>
+
+        <button id="submit-data">Submit</button>
+    </fieldset>
 </body>
 </html>
