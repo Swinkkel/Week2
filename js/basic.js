@@ -26,6 +26,7 @@ function submitFormData() {
 
     console.log(username);
     console.log(admin.checked);
+    console.log(image);
   
     index = tableContainsUser(myTable, username);
   
@@ -40,7 +41,12 @@ function submitFormData() {
       adminCell.textContent = admin.checked ? "X" : "-";
   
       let imageCell = document.createElement("td");
-      imageCell.textContent = image;
+      let imgElement = document.createElement("img");
+      imgElement.src = image;
+      imgElement.width = 64;
+      imgElement.height = 64;
+
+      imageCell.appendChild(imgElement);
   
       let newTableRow = document.createElement("tr");
       newTableRow.appendChild(usernameCell);
