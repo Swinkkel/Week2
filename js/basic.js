@@ -21,13 +21,9 @@ function submitFormData() {
     const username = document.getElementById("input-username").value;
     const email = document.getElementById("input-email").value;
     const admin = document.getElementById("input-admin");
-    const image = document.getElementById("input-image").value;
     const myTable = document.getElementById("data-table");
+    const image = document.getElementById("input-image");
 
-    console.log(username);
-    console.log(admin.checked);
-    console.log(image);
-  
     index = tableContainsUser(myTable, username);
   
     if (index === undefined) {
@@ -41,12 +37,20 @@ function submitFormData() {
       adminCell.textContent = admin.checked ? "X" : "-";
   
       let imageCell = document.createElement("td");
-      let imgElement = document.createElement("img");
-      imgElement.src = image;
-      imgElement.width = 64;
-      imgElement.height = 64;
 
-      imageCell.appendChild(imgElement);
+      if (image.files.length) {
+        for (let i = 0; i < image.files.length; i++) {
+          let imgElement = document.createElement("img");
+          imgElement.src = URL.createObjectURL(image.files[i]);;
+          imgElement.width = 64;
+          imgElement.height = 64;
+          imgElement.onload = () => {
+            URL.revokeObjectURL(imgElement.src);
+          }
+    
+          imageCell.appendChild(imgElement);
+        }      
+      }
   
       let newTableRow = document.createElement("tr");
       newTableRow.appendChild(usernameCell);
